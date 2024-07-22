@@ -1,0 +1,27 @@
+version: '3.8'
+name: teeeem-city
+services:
+  one:
+    image: one
+    container_name: one-app
+    build:
+      context: /Users/alina/Desktop/projects/gpfW/multimodular-in-one-jvm/TeamCityDemeOne
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    networks:
+      - default
+  two:
+    image: two
+    container_name: two-app
+    build:
+      context: /Users/alina/Desktop/projects/TeamCityTwo
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    networks:
+      - default
+
+networks:
+  myNetwork:
+    driver: "bridge"
